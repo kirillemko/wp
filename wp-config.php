@@ -18,25 +18,22 @@
  * @package WordPress
  */
 
-// ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
-/** Имя базы данных для WordPress */
-define('DB_NAME', 'wp');
-
-/** Имя пользователя MySQL */
-define('DB_USER', 'root');
-
-/** Пароль к базе данных MySQL */
-define('DB_PASSWORD', 'qwerty');
-
-/** Имя сервера MySQL */
-define('DB_HOST', 'localhost');
-
-/** Кодировка базы данных для создания таблиц. */
-define('DB_CHARSET', 'utf8mb4');
-
-/** Схема сопоставления. Не меняйте, если не уверены. */
-define('DB_COLLATE', '');
-
+ if (file_exists("local.local")) {
+	define('DB_NAME', 'wordpress');
+	define('DB_USER', 'root');
+	define('DB_PASSWORD', '');
+	define('DB_HOST', 'localhost');
+	define('DB_CHARSET', 'utf8mb4');
+	define('DB_COLLATE', '');
+} else {
+    define('DB_NAME', 'wp');
+	define('DB_USER', 'root');
+	define('DB_PASSWORD', 'qwerty');
+	define('DB_HOST', 'localhost');
+	define('DB_CHARSET', 'utf8mb4');
+	define('DB_COLLATE', '');
+}
+ 
 /**#@+
  * Уникальные ключи и соли для аутентификации.
  *
